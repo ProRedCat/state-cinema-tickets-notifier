@@ -1,13 +1,14 @@
 import time
+import random
 
+from log import *
 from notify import *
 from checkmovies import *
 
 def main():
-    #titles = loadTitles()
-    titles = set()
-
     server = None
+    titles = loadTitles()
+
     while (True):
         queriedTitles = getMovieTitles()
 
@@ -22,14 +23,14 @@ def main():
 
                 sendEmail(server, message)
 
-                #logTitle(title)
-                queriedTitles.add(title)
+                logTitle(title)
+                titles.add(title)
 
         if(server != None):
             disconnectEmailServer(server)
             server = None
         
-        time.sleep(900)
+        time.sleep(600 + random.randint(-50, 50))
 
 
     
