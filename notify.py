@@ -4,17 +4,24 @@ PORT = 465
 USERNAME = "xxx"
 PASSWORD = "xxx"
 
-SMTP_ADDRESS = "smtp.gmail.com"
+SMTP_ADDRESS = "xxx"
 
 RECIPIENT = "xxx"
 
-MESSAGE = """\
-Subject: Test Email
+def connectToEmailServer():
+    context = ssl.create_default_context()
 
-This message is sent from Python."""
-
-context = ssl.create_default_context()
-
-with smtplib.SMTP_SSL(SMTP_ADDRESS, PORT, context=context) as server:
+    server = smtplib.SMTP_SSL(SMTP_ADDRESS, PORT, context=context)
     server.login(USERNAME, PASSWORD)
-    server.sendmail(USERNAME, RECIPIENT, MESSAGE)
+
+    return server
+
+def disconnectEmailServer(server):
+    server.quit()
+
+# Email formal \Subject: {subject} {body}
+def sendEmail(server, message):
+    server.sendmail(USERNAME, RECIPIENT, message)
+
+def createEmail(subject, body):
+    return "Subject: {}\n\n{}".format(subject, body)
