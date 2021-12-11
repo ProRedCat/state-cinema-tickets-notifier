@@ -1,3 +1,5 @@
+import datetime
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
@@ -37,3 +39,11 @@ def getMovieTitles():
 
     return titles
 
+def inOpenHours(now):
+    start = datetime.time(10, 30, 0)
+    end = datetime.time(23, 30, 0)
+
+    if start <= end:
+        return start <= now < end
+    else:
+        return start <= now or now < end
