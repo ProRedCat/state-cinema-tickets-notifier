@@ -10,7 +10,7 @@ import base64
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-RECIPIENT = "reilly.oldham@gmail.com"
+RECIPIENT = "xxx"
 
 CREDENTIALS = 'credentials.json'
 
