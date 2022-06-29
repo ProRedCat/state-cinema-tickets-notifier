@@ -8,7 +8,7 @@ from notify import *
 from checkmovies import *
 
 def main():
-    server = None
+    # server = None
     titles = loadTitles()
 
     while (True):
@@ -17,21 +17,23 @@ def main():
 
             for title in queriedTitles:
                 if(title not in titles):
-                    if(server == None):
-                        server = connectToEmailServer()
+                    # if(server == None):
+                        # server = connectToEmailServer()
 
                     subject = "{} Avaliable Now!".format(title)
                     body = "The movie {} have tickets avaliable now at State Cinemas".format(title)
-                    message = createEmail(subject, body)
+                    # message = createEmail(subject, body)
+                    
+                    sendEmail(subject, body)
 
-                    sendEmail(server, message)
+                    # sendEmail(server, message)
 
                     logTitle(title)
                     titles.add(title)
 
-            if(server != None):
-                disconnectEmailServer(server)
-                server = None
+            # if(server != None):
+                # disconnectEmailServer(server)
+                # server = None
         
         time.sleep(900 + random.randint(-60, 60))
     

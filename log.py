@@ -4,9 +4,8 @@ from checkmovies import *
 
 def logTitle(title):
     """Method to log the title into a file called movies.txt"""
-    file = open("movies.txt", "a")
-    file.write(title + "\n")
-    file.close()
+    with open("movies.txt", "a", encoding="utf-8") as file:
+        file.write(title + "\n")
 
 def loadTitles():
     """Method to load the titles on program start"""
