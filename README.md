@@ -7,7 +7,7 @@ Get email notifications for when new movies at State Cinema have tickets availab
 * Create a Google Project in the Google Projects Console
 * Enable the Gmail API
 * Create the OAuth access token for a Desktop app, and place that into the directory of this program
-* Finally follow the steps in Python setip
+* Finally follow the steps in Python setup
 #### General email setup
 * Uncomment the commented code, and comment out the gmail code
 * Replace USERNAME and PASSWORD in notify.py with the username and password of the email for notifcations to be sent from
